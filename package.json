@@ -9,7 +9,18 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prettier": "prettier --write .",
-    "stylelint": "stylelint \"**/*.css\""
+    "stylelint": "stylelint \"**/*.css\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "react": "^19.2.5",
@@ -29,6 +40,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.2",
     "prettier": "^3.8.3",
     "stylelint": "^17.11.0",
     "stylelint-config-standard": "^40.0.0",
