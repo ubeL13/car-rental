@@ -2,6 +2,7 @@
 
 ## Stack
 
+- Node.js v24.15.0
 - TypeScript 6
 - React 19
 
