@@ -1,7 +1,8 @@
+import { CommonRouter } from '@routers/CommonRouter';
 import './App.css';
 
 function App() {
-  return <></>;
+  return <CommonRouter></CommonRouter>;
 }
 
 export default App;
