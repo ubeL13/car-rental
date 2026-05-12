@@ -1,1 +1,1 @@
-export * from './Additionally';
+export { default as Additionally } from './additionally';

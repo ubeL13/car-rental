@@ -7,8 +7,7 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
     "paths": {
-      "@pages/*": ["./src/pages/*"],
-      "@routers/*": ["./src/routers/*"]
+      "@pages/*": ["./src/pages/*"]
     },
 
     /* Bundler mode */
