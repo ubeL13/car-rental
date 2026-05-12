@@ -10,7 +10,7 @@ import tseslint from 'typescript-eslint';
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{js, jsx, ts,tsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -43,6 +43,11 @@ export default defineConfig([
             },
             {
               pattern: 'react-dom/**',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'react-router-dom',
               group: 'external',
               position: 'before',
             },
