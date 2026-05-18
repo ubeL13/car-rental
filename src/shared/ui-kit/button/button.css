@@ -1,0 +1,12 @@
+.button {
+  width: 120px;
+  height: 48px;
+}
+
+.button:hover {
+  background-color: brown;
+}
+
+.button:focus {
+  background-color: rgb(42 165 93);
+}

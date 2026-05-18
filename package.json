@@ -18,6 +18,7 @@
       "eslint",
       "prettier --write"
     ],
+    "!.storybook/main.ts": [],
     "*.css": [
       "stylelint",
       "prettier --write"
