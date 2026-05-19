@@ -21,12 +21,12 @@
   background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
 }
 
-.button:not(.loading, .disabled):active {
-  background: linear-gradient(90deg, #076432 0%, #013c27 100%);
+.button:not(.loading, .disabled):focus-visible {
+  background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
 }
 
-.button:not(.loading, .disabled):focus {
-  background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
+.button:not(.loading, .disabled):active {
+  background: linear-gradient(90deg, #076432 0%, #013c27 100%);
 }
 
 .disabled {
