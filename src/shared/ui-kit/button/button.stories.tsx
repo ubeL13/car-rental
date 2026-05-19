@@ -19,11 +19,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     state: 'default',
-    label: 'Button',
+    label: 'Ок',
   },
 };
 
-export const Primary: Story = {
+export const Hover: Story = {
   render: (args) => (
     <div className="hover-wrapper">
       <Button {...args} />
@@ -32,7 +32,7 @@ export const Primary: Story = {
   parameters: { pseudo: { hover: '.hover-wrapper > *' } },
   args: {
     state: 'default',
-    label: 'Button',
+    label: 'Ок',
   },
 };
 
@@ -45,33 +45,33 @@ export const Focused: Story = {
   parameters: { pseudo: { focus: '.focus-wrapper > *' } },
   args: {
     state: 'default',
-    label: 'Button',
+    label: 'Ок',
   },
 };
 
 export const Selected: Story = {
   render: (args) => (
-    <div className="hover-wrapper">
+    <div className="active-wrapper">
       <Button {...args} />
     </div>
   ),
-  parameters: { pseudo: { hover: '.hover-wrapper > *' } },
+  parameters: { pseudo: { active: '.active-wrapper > *' } },
   args: {
     state: 'default',
-    label: 'Button',
+    label: 'Ок',
   },
 };
 
 export const Loading: Story = {
   args: {
     state: 'loading',
-    label: 'Button',
+    label: 'Ок',
   },
 };
 
 export const Disabled: Story = {
   args: {
     state: 'disabled',
-    label: 'Button',
+    label: 'Ок',
   },
 };

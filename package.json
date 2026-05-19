@@ -11,14 +11,15 @@
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "stylelint": "stylelint \"**/*.css\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint",
       "prettier --write"
     ],
-    "!.storybook/main.ts": [],
     "*.css": [
       "stylelint",
       "prettier --write"
