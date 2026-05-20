@@ -1,0 +1,49 @@
+.link {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.on-light {
+  color: #121212;
+}
+
+.on-light:hover {
+  color: #0ec261;
+}
+
+.on-light:active {
+  color: #0ec261;
+}
+
+.on-dark {
+  color: #eee;
+}
+
+.on-dark:hover {
+  color: #0ec261;
+}
+
+.on-dark:active {
+  color: #0ec261;
+}
+
+.on-dark-alt {
+  color: #0ec261;
+}
+
+.on-dark-alt:hover {
+  color: #eee;
+}
+
+.on-dark-alt:active {
+  color: #eee;
+}
+
+.disabled {
+  color: #999;
+  cursor: not-allowed;
+  pointer-events: none;
+}
