@@ -1,0 +1,11 @@
+.component {
+  width: 250px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0ec261 0%, #039f67 100%);
+  border: none;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
