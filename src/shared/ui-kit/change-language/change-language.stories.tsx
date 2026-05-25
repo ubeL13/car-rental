@@ -31,46 +31,34 @@ const BackgroundDark: Decorator = (Story) => (
 
 export const RU: Story = {
   decorators: [BackgroundDark],
-  args: {
-    language: 'RU',
-  },
+  args: { label: 'RU' },
 };
 
 export const RUHover: Story = {
   decorators: [BackgroundDark],
   parameters: { pseudo: { hover: true } },
-  args: {
-    language: 'RU',
-  },
+  args: { label: 'RU' },
 };
 
 export const RUPressed: Story = {
   decorators: [BackgroundDark],
   parameters: { pseudo: { active: true } },
-  args: {
-    language: 'RU',
-  },
+  args: { label: 'RU' },
 };
 
 export const ENG: Story = {
   decorators: [BackgroundDark],
-  args: {
-    language: 'ENG',
-  },
+  args: { label: 'ENG' },
 };
 
 export const ENGHover: Story = {
   decorators: [BackgroundDark],
   parameters: { pseudo: { hover: true } },
-  args: {
-    language: 'ENG',
-  },
+  args: { label: 'ENG' },
 };
 
 export const ENGPressed: Story = {
   decorators: [BackgroundDark],
   parameters: { pseudo: { active: true } },
-  args: {
-    language: 'ENG',
-  },
+  args: { label: 'ENG' },
 };

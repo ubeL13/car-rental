@@ -1,16 +1,19 @@
 import styles from './change-language.module.css';
 
-type Language = 'RU' | 'ENG';
-
 interface ChangeLanguageProps {
-  language: Language;
+  label: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-const ChangeLanguage = ({ language, onClick }: ChangeLanguageProps) => {
+const ChangeLanguage = ({ label, onClick, disabled }: ChangeLanguageProps) => {
   return (
-    <button type="button" className={styles.button} onClick={onClick}>
-      {language}
+    <button
+      type="button"
+      className={`${styles.button} ${disabled ? styles.disabled : ''}`}
+      onClick={onClick}
+      disabled={disabled}>
+      {label}
     </button>
   );
 };

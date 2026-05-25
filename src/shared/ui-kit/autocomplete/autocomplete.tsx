@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import cross from '../../../assets/icons/Vector.png';
+import closeIcon from '@assets/icons/close-icon.png';
 
 import styles from './autocomplete.module.css';
 
@@ -79,7 +79,7 @@ const Autocomplete = ({
             className={styles.clearButton}
             onClick={handleClear}
             aria-label="Очистить">
-            <img src={cross} alt="" />
+            <img src={closeIcon} alt="" />
           </button>
         )}
         {showDropdown && (
