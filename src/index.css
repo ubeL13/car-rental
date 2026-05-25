@@ -1,0 +1,18 @@
+:root {
+  --color-primary: #0ec261;
+  --color-primary-black: #121212;
+  --color-grey-dark: #999;
+  --color-grey-light: #eee;
+  --cursor-default: url('./assets/cursors/Cursor.png') 0 0, auto;
+  --cursor-pointer: url('./assets/cursors/Pointer.png') 11 0, pointer;
+}
+
+body {
+  cursor: var(--cursor-default);
+}
+
+a,
+button,
+[role='button'] {
+  cursor: var(--cursor-pointer);
+}

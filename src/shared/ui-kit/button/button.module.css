@@ -10,11 +10,10 @@
   font-size: 18px;
   font-weight: 500;
   color: #fff;
-  cursor: pointer;
 }
 
 .default {
-  background: linear-gradient(90deg, #0ec261 0%, #039f67 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, #039f67 100%);
 }
 
 .button:not(.loading, .disabled):hover {
@@ -30,12 +29,12 @@
 }
 
 .disabled {
-  background: #eee;
+  background: var(--color-grey-light);
   cursor: not-allowed;
 }
 
 .loading {
-  background: linear-gradient(90deg, #0ec261 0%, #039f67 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, #039f67 100%);
   cursor: not-allowed;
 }
 

@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
-
+// @ts-expect-error - css side-effect import
+import '../src/index.css';
 const preview: Preview = {
   parameters: {
     controls: {

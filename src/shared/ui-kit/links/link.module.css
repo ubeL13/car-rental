@@ -2,48 +2,47 @@
   font-family: Roboto, sans-serif;
   font-size: 13px;
   font-weight: 400;
-  cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .on-light {
-  color: #121212;
+  color: var(--color-primary-black);
 }
 
 .on-light:hover {
-  color: #0ec261;
+  color: var(--color-primary);
 }
 
 .on-light:active {
-  color: #0ec261;
+  color: var(--color-primary);
 }
 
 .on-dark {
-  color: #eee;
+  color: var(--color-grey-light);
 }
 
 .on-dark:hover {
-  color: #0ec261;
+  color: var(--color-primary);
 }
 
 .on-dark:active {
-  color: #0ec261;
+  color: var(--color-primary);
 }
 
 .on-dark-alt {
-  color: #0ec261;
+  color: var(--color-primary);
 }
 
 .on-dark-alt:hover {
-  color: #eee;
+  color: var(--color-grey-light);
 }
 
 .on-dark-alt:active {
-  color: #eee;
+  color: var(--color-grey-light);
 }
 
 .disabled {
-  color: #999;
+  color: var(--color-grey-dark);
   cursor: not-allowed;
   pointer-events: none;
 }

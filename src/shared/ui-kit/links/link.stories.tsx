@@ -17,7 +17,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const BackgroundDark: Decorator = (Story) => (
-  <div style={{ backgroundColor: '#121212', padding: '10px' }}>
+  <div
+    style={{ backgroundColor: 'var(--color-primary-black)', padding: '10px' }}>
     <Story />
   </div>
 );
