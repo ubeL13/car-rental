@@ -1,15 +1,15 @@
-import styles from './component.module.css';
+import styles from './primary-component.module.css';
 
-interface ComponentProps {
+interface PrimaryComponentProps {
   label: string;
   onClick?: () => void;
 }
 
-const Component = ({ label, onClick }: ComponentProps) => {
+const PrimaryComponent = ({ label, onClick }: PrimaryComponentProps) => {
   return (
-    <button className={styles.component} onClick={onClick}>
+    <button className={styles.primaryComponent} onClick={onClick}>
       {label}
     </button>
   );
 };
-export default Component;
+export default PrimaryComponent;
