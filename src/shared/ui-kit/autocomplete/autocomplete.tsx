@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 import closeIcon from '@assets/icons/close-icon.png';
+import classNames from 'classnames';
 
 import styles from './autocomplete.module.css';
 
@@ -61,7 +62,7 @@ const Autocomplete = ({
   return (
     <div
       ref={wrapperRef}
-      className={`${styles.wrapper} ${disabled ? styles.disabled : ''}`}>
+      className={classNames(styles.wrapper, { [styles.disabled]: disabled })}>
       <span className={styles.label}>{label}</span>
       <div className={styles.inputWrapper}>
         <input

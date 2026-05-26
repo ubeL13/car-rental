@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import styles from './button.module.css';
 
 type ButtonState = 'default' | 'loading' | 'disabled';
@@ -14,7 +16,7 @@ const Button = ({ label, state = 'default', onClick }: ButtonProps) => {
 
   return (
     <button
-      className={`${styles.button} ${styles[state]}`}
+      className={classNames(styles.button, styles[state])}
       disabled={isDisabled}
       onClick={onClick}>
       {isLoading ? <div className={styles.loader} /> : label}

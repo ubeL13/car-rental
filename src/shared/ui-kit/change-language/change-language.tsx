@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import styles from './change-language.module.css';
 
 interface ChangeLanguageProps {
@@ -10,7 +12,7 @@ const ChangeLanguage = ({ label, onClick, disabled }: ChangeLanguageProps) => {
   return (
     <button
       type="button"
-      className={`${styles.button} ${disabled ? styles.disabled : ''}`}
+      className={classNames(styles.button, { [styles.disabled]: disabled })}
       onClick={onClick}
       disabled={disabled}>
       {label}

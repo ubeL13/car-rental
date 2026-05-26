@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import styles from './link.module.css';
 
 type LinkVariant = 'onLight' | 'onDark' | 'onDarkAlt';
@@ -20,7 +22,9 @@ const Link = ({
   return (
     <a
       href={href}
-      className={`${styles.link} ${styles[variant]} ${disabled ? styles.disabled : ''}`}
+      className={classNames(styles.link, styles[variant], {
+        [styles.disabled]: disabled,
+      })}
       onClick={disabled ? (e) => e.preventDefault() : onClick}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : 0}>

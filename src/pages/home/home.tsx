@@ -1,7 +1,5 @@
-import Button from '@shared/ui-kit/button/button';
-
 function Home() {
-  return <Button label="1"></Button>;
+  return <h1>Home</h1>;
 }
 
 export default Home;
