@@ -62,7 +62,9 @@ const Autocomplete = ({
   return (
     <div
       ref={wrapperRef}
-      className={classNames(styles.wrapper, { [styles.disabled]: disabled })}>
+      className={classNames(styles.wrapper, {
+        [styles.disabled]: disabled,
+      })}>
       <span className={styles.label}>{label}</span>
       <div className={styles.inputWrapper}>
         <input
@@ -78,8 +80,7 @@ const Autocomplete = ({
           <button
             type="button"
             className={styles.clearButton}
-            onClick={handleClear}
-            aria-label="Очистить">
+            onClick={handleClear}>
             <img src={closeIcon} alt="" />
           </button>
         )}

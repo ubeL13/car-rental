@@ -1,12 +1,21 @@
+import { MemoryRouter } from 'react-router-dom';
+
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import Link from './link';
 
+const WithRouter: Decorator = (Story) => (
+  <MemoryRouter>
+    <Story />
+  </MemoryRouter>
+);
+
 const meta = {
   title: 'UI-kit/Link',
   component: Link,
   tags: ['autodocs'],
+  decorators: [WithRouter],
   args: { onClick: fn() },
 } satisfies Meta<typeof Link>;
 

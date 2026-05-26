@@ -12,7 +12,9 @@ const ChangeLanguage = ({ label, onClick, disabled }: ChangeLanguageProps) => {
   return (
     <button
       type="button"
-      className={classNames(styles.button, { [styles.disabled]: disabled })}
+      className={classNames(styles.button, {
+        [styles.disabled]: disabled,
+      })}
       onClick={onClick}
       disabled={disabled}>
       {label}

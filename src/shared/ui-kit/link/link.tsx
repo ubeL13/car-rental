@@ -1,3 +1,5 @@
+import { Link as RouterLink } from 'react-router-dom';
+
 import classNames from 'classnames';
 
 import styles from './link.module.css';
@@ -19,17 +21,23 @@ const Link = ({
   disabled,
   onClick,
 }: LinkProps) => {
+  const isOnLight = variant === 'onLight';
+  const isOnDark = variant === 'onDark';
+  const isOnDarkAlt = variant === 'onDarkAlt';
   return (
-    <a
-      href={href}
-      className={classNames(styles.link, styles[variant], {
+    <RouterLink
+      to={href}
+      className={classNames(styles.link, {
+        [styles.onLight]: isOnLight,
+        [styles.onDark]: isOnDark,
+        [styles.onDarkAlt]: isOnDarkAlt,
         [styles.disabled]: disabled,
       })}
       onClick={disabled ? (e) => e.preventDefault() : onClick}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : 0}>
       {label}
-    </a>
+    </RouterLink>
   );
 };
 export default Link;

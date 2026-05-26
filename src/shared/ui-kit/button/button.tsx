@@ -13,10 +13,15 @@ interface ButtonProps {
 const Button = ({ label, state = 'default', onClick }: ButtonProps) => {
   const isDisabled = state === 'disabled' || state === 'loading';
   const isLoading = state === 'loading';
+  const isDefault = state === 'default';
 
   return (
     <button
-      className={classNames(styles.button, styles[state])}
+      className={classNames(styles.button, {
+        [styles.default]: isDefault,
+        [styles.loading]: isLoading,
+        [styles.disabled]: isDisabled,
+      })}
       disabled={isDisabled}
       onClick={onClick}>
       {isLoading ? <div className={styles.loader} /> : label}
