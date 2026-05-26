@@ -31,12 +31,19 @@
     "react-router-dom": "^7.15.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
     "@eslint/compat": "^2.0.5",
     "@eslint/js": "^9.39.4",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.1",
+    "@storybook/addon-onboarding": "^10.4.1",
+    "@storybook/addon-vitest": "^10.4.1",
+    "@storybook/react-vite": "^10.4.1",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/browser-playwright": "^4.1.7",
     "eslint": "^9.39.4",
     "eslint-config-airbnb-extended": "^3.1.0",
     "eslint-config-prettier": "^10.1.8",
@@ -44,14 +51,19 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "eslint-plugin-storybook": "^10.4.1",
     "globals": "^17.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.2",
+    "playwright": "^1.60.0",
     "prettier": "^3.8.3",
+    "storybook": "^10.4.1",
+    "storybook-addon-pseudo-states": "^10.4.1",
     "stylelint": "^17.11.0",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.7"
   }
 }
