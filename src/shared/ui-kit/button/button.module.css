@@ -1,0 +1,54 @@
+.button {
+  width: 120px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.default {
+  background: linear-gradient(90deg, var(--color-primary) 0%, #039f67 100%);
+}
+
+.button:not(.loading, .disabled):hover {
+  background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
+}
+
+.button:not(.loading, .disabled):focus-visible {
+  background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
+}
+
+.button:not(.loading, .disabled):active {
+  background: linear-gradient(90deg, #076432 0%, #013c27 100%);
+}
+
+.disabled {
+  background: var(--color-grey-light);
+  cursor: not-allowed;
+}
+
+.loading {
+  background: linear-gradient(90deg, var(--color-primary) 0%, #039f67 100%);
+  cursor: not-allowed;
+}
+
+.loader {
+  border: 3px solid #f5f6f8;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border-left-color: transparent;
+  animation: loader 2s linear infinite;
+}
+
+@keyframes loader {
+  100% {
+    transform: rotate(360deg);
+  }
+}

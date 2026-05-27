@@ -1,0 +1,48 @@
+.link {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  transition: background 0.3s ease;
+}
+
+.on-light {
+  color: var(--color-primary-black);
+}
+
+.on-light:hover {
+  color: var(--color-primary);
+}
+
+.on-light:active {
+  color: var(--color-primary);
+}
+
+.on-dark {
+  color: var(--color-grey-light);
+}
+
+.on-dark:hover {
+  color: var(--color-primary);
+}
+
+.on-dark:active {
+  color: var(--color-primary);
+}
+
+.on-dark-alt {
+  color: var(--color-primary);
+}
+
+.on-dark-alt:hover {
+  color: var(--color-grey-light);
+}
+
+.on-dark-alt:active {
+  color: var(--color-grey-light);
+}
+
+.disabled {
+  color: var(--color-grey-dark);
+  cursor: not-allowed;
+  pointer-events: none;
+}
