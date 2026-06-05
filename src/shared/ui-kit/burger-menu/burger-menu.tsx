@@ -31,10 +31,10 @@ const BurgerMenu = ({
   if (!isOpen) return null;
   return (
     <div className={styles.overlay}>
-      <button type="button" className={styles.closeButton} onClick={onClose}>
-        <img src={closeIcon} alt="" />
-      </button>
       <nav className={styles.menu}>
+        <button type="button" className={styles.closeButton} onClick={onClose}>
+          <img src={closeIcon} alt="" />
+        </button>
         <ul className={styles.list}>
           {items.map((item) => (
             <li key={item.label}>

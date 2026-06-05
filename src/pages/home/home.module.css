@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 64px minmax(520px, 50%) 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  background: var(--color-primary-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 16px;
+  box-sizing: border-box;
+}
+
+.main {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 60px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-family: Roboto, sans-serif;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title-location {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  color: var(--color-grey-dark);
+  font-weight: 400;
+}
+
+.location img {
+  width: 15px;
+  height: 18px;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 70px;
+  font-family: Roboto, sans-serif;
+  color: var(--color-primary-black);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.title-accent {
+  color: var(--color-primary);
+}
+
+.subtitle {
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--color-grey-dark);
+  margin: 24px 0 40px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--color-grey-dark);
+}
+
+.phone {
+  color: var(--color-primary-black);
+  text-decoration: none;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
