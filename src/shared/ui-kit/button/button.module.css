@@ -11,20 +11,32 @@
   color: #fff;
 }
 
-.default {
+.green {
   background: linear-gradient(90deg, var(--color-primary) 0%, #039f67 100%);
 }
 
-.button:not(.loading, .disabled):hover {
+.button.green:not(.loading, .disabled):hover {
   background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
 }
 
-.button:not(.loading, .disabled):focus-visible {
+.button.green:not(.loading, .disabled):focus-visible {
   background: linear-gradient(90deg, #0b934a 0%, #026e47 100%);
 }
 
-.button:not(.loading, .disabled):active {
+.button.green:not(.loading, .disabled):active {
   background: linear-gradient(90deg, #076432 0%, #013c27 100%);
+}
+
+.blue {
+  background: linear-gradient(90deg, #132949 0%, #0c7b67 100%);
+}
+
+.red {
+  background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+}
+
+.purple {
+  background: linear-gradient(90deg, #281349 0%, #720c7b 100%);
 }
 
 .disabled {

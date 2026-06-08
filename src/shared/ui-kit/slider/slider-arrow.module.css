@@ -1,0 +1,35 @@
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  z-index: 2;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.arrow:hover {
+  background: rgb(14 194 97 / 20%);
+}
+
+.arrow:active {
+  background: rgb(14 194 97 / 20%);
+}
+
+.icon {
+  width: 8px;
+  height: 18px;
+  display: block;
+}

@@ -3,21 +3,28 @@ import classNames from 'classnames';
 import styles from './button.module.css';
 
 type ButtonState = 'default' | 'loading' | 'disabled';
+type ButtonVariant = 'green' | 'blue' | 'red' | 'purple';
 
 interface ButtonProps {
   label: string;
   state?: ButtonState;
+  variant?: ButtonVariant;
   onClick?: () => void;
 }
 
-const Button = ({ label, state = 'default', onClick }: ButtonProps) => {
+const Button = ({
+  label,
+  state = 'default',
+  variant = 'green',
+  onClick,
+}: ButtonProps) => {
   const isDisabled = state === 'disabled' || state === 'loading';
   const isLoading = state === 'loading';
   const isDefault = state === 'default';
 
   return (
     <button
-      className={classNames(styles.button, {
+      className={classNames(styles.button, styles[variant], {
         [styles.default]: isDefault,
         [styles.loading]: isLoading,
         [styles.disabled]: isDisabled,
@@ -29,3 +36,4 @@ const Button = ({ label, state = 'default', onClick }: ButtonProps) => {
   );
 };
 export default Button;
+export type { ButtonVariant };
