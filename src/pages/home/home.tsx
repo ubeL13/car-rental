@@ -4,7 +4,10 @@ import facebookIcon from '@assets/icons/facebook.png';
 import instagramIcon from '@assets/icons/instagram.png';
 import locationIcon from '@assets/icons/location.png';
 import telegramIcon from '@assets/icons/telegram.png';
-import carImage from '@assets/images/background-parking.png';
+import fuelImage from '@assets/images/fuel.svg';
+import insuranceImage from '@assets/images/insurance.svg';
+import parkingImage from '@assets/images/parking.svg';
+import serviceImage from '@assets/images/service.svg';
 import {
   BurgerButton,
   BurgerMenu,
@@ -12,6 +15,8 @@ import {
   Button,
   Link,
 } from '@shared/ui-kit';
+import type { SlideData } from '@shared/ui-kit/slider/slider';
+import Slider from '@shared/ui-kit/slider/slider';
 
 import styles from './home.module.css';
 
@@ -21,33 +26,55 @@ const socialLinks = [
   { url: '#', icon: instagramIcon, label: 'Instagram' },
 ];
 
+const slides: SlideData[] = [
+  {
+    id: 'parking',
+    title: 'Бесплатная парковка',
+    description:
+      'Оставляйте машину на платных городских парковках и разрешённых местах, не нарушая ПДД, а также в аэропортах.',
+    image: parkingImage,
+    buttonLabel: 'Подробнее',
+    buttonVariant: 'green',
+  },
+  {
+    id: 'insurance',
+    title: 'Страховка',
+    description: 'Полная страховка страховка автомобиля.',
+    image: insuranceImage,
+    buttonLabel: 'Подробнее',
+    buttonVariant: 'blue',
+  },
+  {
+    id: 'fuel',
+    title: 'Бензин',
+    description: 'Полный бак на любой заправке города за наш счёт.',
+    image: fuelImage,
+    buttonLabel: 'Подробнее',
+    buttonVariant: 'red',
+  },
+  {
+    id: 'service',
+    title: 'Обслуживание',
+    description: 'Автомобиль проходит еженедельное ТО.',
+    image: serviceImage,
+    buttonLabel: 'Подробнее',
+    buttonVariant: 'purple',
+  },
+];
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
-  const [activeSection, setActiveSection] = useState('home');
+  // const [activeSection, setActiveSection] = useState('home');
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  const menuItems = [
-    {
-      label: 'Парковка',
-      active: activeSection === 'Парковка',
-      onClick: () => setActiveSection('Парковка'),
+  const menuItems = slides.map((slide, index) => ({
+    label: slide.title,
+    active: activeSlideIndex === index,
+    onClick: () => {
+      setActiveSlideIndex(index);
+      setIsMenuOpen(false);
     },
-    {
-      label: 'Страховка',
-      active: activeSection === 'Страховка',
-      onClick: () => setActiveSection('Страховка'),
-    },
-    {
-      label: 'Бензин',
-      active: activeSection === 'Бензин',
-      onClick: () => setActiveSection('Бензин'),
-    },
-    {
-      label: 'Обслуживание',
-      active: activeSection === 'Обслуживание',
-      onClick: () => setActiveSection('Обслуживание'),
-    },
-  ];
+  }));
 
   return (
     <div className={styles.page}>
@@ -93,7 +120,11 @@ const Home = () => {
       </main>
 
       <aside className={styles.media}>
-        <img src={carImage} alt="" className={styles.carImage} />
+        <Slider
+          slides={slides}
+          activeIndex={activeSlideIndex}
+          onSlideChange={setActiveSlideIndex}
+        />
       </aside>
 
       <BurgerMenu
