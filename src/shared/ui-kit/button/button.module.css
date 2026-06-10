@@ -1,14 +1,28 @@
 .button {
-  padding: 14px 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   border-radius: 8px;
   font-family: Roboto, sans-serif;
-  font-size: 18px;
   font-weight: 500;
+  font-size: 18px;
   color: #fff;
+}
+
+.small {
+  width: 164px;
+  height: 48px;
+}
+
+.medium {
+  width: 250px;
+  height: 48px;
+}
+
+.large {
+  width: 320px;
+  height: 48px;
 }
 
 .green {

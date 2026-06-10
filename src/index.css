@@ -5,6 +5,8 @@
   --color-grey-light: #eee;
   --cursor-default: url('./assets/cursors/cursor.png') 0 0, auto;
   --cursor-pointer: url('./assets/cursors/pointer.png') 11 0, pointer;
+  --header-height: 32px;
+  --footer-height: 16px;
 }
 
 body {

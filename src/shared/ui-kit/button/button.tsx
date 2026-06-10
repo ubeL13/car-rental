@@ -4,11 +4,13 @@ import styles from './button.module.css';
 
 type ButtonState = 'default' | 'loading' | 'disabled';
 type ButtonVariant = 'green' | 'blue' | 'red' | 'purple';
+type ButtonSize = 'small' | 'medium' | 'large';
 
 interface ButtonProps {
   label: string;
   state?: ButtonState;
   variant?: ButtonVariant;
+  size?: ButtonSize;
   onClick?: () => void;
 }
 
@@ -16,6 +18,7 @@ const Button = ({
   label,
   state = 'default',
   variant = 'green',
+  size = 'small',
   onClick,
 }: ButtonProps) => {
   const isDisabled = state === 'disabled' || state === 'loading';
@@ -24,7 +27,7 @@ const Button = ({
 
   return (
     <button
-      className={classNames(styles.button, styles[variant], {
+      className={classNames(styles.button, styles[variant], styles[size], {
         [styles.default]: isDefault,
         [styles.loading]: isLoading,
         [styles.disabled]: isDisabled,

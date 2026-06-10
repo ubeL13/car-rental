@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
 }
 
 .slider::after {
@@ -24,12 +25,13 @@
 }
 
 .content {
-  position: absolute;
-  top: 295px;
-  left: 97px;
-  right: 97px;
   color: #fff;
   z-index: 2;
+  padding: calc(32px + var(--header-height)) 97px
+    calc(32px + var(--footer-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
@@ -72,4 +74,8 @@
 
 .active-dot {
   background-color: var(--color-primary);
+}
+
+.slide-button {
+  width: min-content;
 }

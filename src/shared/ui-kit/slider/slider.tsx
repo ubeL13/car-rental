@@ -44,6 +44,7 @@ const Slider = ({ slides, activeIndex, onSlideChange }: SliderProps) => {
         <h2 className={styles.title}>{activeSlide.title}</h2>
         <p className={styles.description}>{activeSlide.description}</p>
         <Button
+          className={styles.slideButton}
           label={activeSlide.buttonLabel}
           variant={activeSlide.buttonVariant}
           onClick={() => {}}

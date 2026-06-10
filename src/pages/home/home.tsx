@@ -64,7 +64,6 @@ const slides: SlideData[] = [
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
-  // const [activeSection, setActiveSection] = useState('home');
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const menuItems = slides.map((slide, index) => ({
@@ -86,6 +85,10 @@ const Home = () => {
         />
       </aside>
 
+      <header className={styles.mobileSidebar}>
+        <BurgerButton onClick={() => setIsMenuOpen(true)} />
+      </header>
+
       <main className={styles.main}>
         <header className={styles.header}>
           <span className={styles.logo}>Need for drive</span>
@@ -104,8 +107,8 @@ const Home = () => {
           <p className={styles.subtitle}>
             Поминутная аренда авто твоего города
           </p>
-          <div className={styles.buttonwrapper}>
-            <Button label="Забронировать" onClick={() => {}} />
+          <div className={styles.buttonWrapper}>
+            <Button label="Забронировать" size="medium" onClick={() => {}} />
           </div>
         </section>
 
