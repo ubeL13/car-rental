@@ -105,13 +105,6 @@ body {
   overflow: hidden;
 }
 
-.car-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .mobile-sidebar {
   display: none;
 }

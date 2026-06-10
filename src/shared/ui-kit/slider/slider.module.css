@@ -75,7 +75,3 @@
 .active-dot {
   background-color: var(--color-primary);
 }
-
-.slide-button {
-  width: min-content;
-}
