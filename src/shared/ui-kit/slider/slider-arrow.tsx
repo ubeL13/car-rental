@@ -1,7 +1,6 @@
+import ArrowLeft from '@assets/icons/arrow-left.svg?react';
+import ArrowRight from '@assets/icons/arrow-right.svg?react';
 import classNames from 'classnames';
-
-import arrowLeft from '../../../assets/icons/arrow-left.svg';
-import arrowRighht from '../../../assets/icons/arrow-right.svg';
 
 import styles from './slider-arrow.module.css';
 
@@ -21,11 +20,11 @@ const SliderArrow = ({ onClick, direction }: SliderArrowProps) => {
         [styles.right]: isRight,
       })}
       onClick={onClick}>
-      <img
-        src={isLeft ? arrowLeft : arrowRighht}
-        alt=""
-        className={styles.icon}
-      />
+      {isLeft ? (
+        <ArrowLeft className={styles.icon} />
+      ) : (
+        <ArrowRight className={styles.icon} />
+      )}
     </button>
   );
 };

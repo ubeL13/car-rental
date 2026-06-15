@@ -1,5 +1,5 @@
 .button {
-  width: 42px;
+  width: 32px;
   height: 32px;
   padding: 0;
   border: none;
@@ -10,20 +10,20 @@
 }
 
 .icon {
-  --burger-icon-url: url('src/assets/icons/menu-btn.svg');
-
   display: block;
   width: 42px;
   height: 32px;
-  background-color: white;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-image: var(--burger-icon-url);
+  color: white;
+}
+
+@media (width <= 1024px) {
+  .button {
+    width: 42px;
+  }
 }
 
 @media (width <= 600px) {
   .icon {
-    background-color: var(--color-primary-black);
+    color: var(--color-primary-black);
   }
 }

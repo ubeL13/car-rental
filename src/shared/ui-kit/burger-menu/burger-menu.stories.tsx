@@ -1,6 +1,6 @@
-import facebookIcon from '@assets/icons/facebook.png';
-import instagramIcon from '@assets/icons/instagram.png';
-import telegramIcon from '@assets/icons/telegram.png';
+import facebookIcon from '@assets/icons/facebook.svg?react';
+import instagramIcon from '@assets/icons/instagram.svg?react';
+import telegramIcon from '@assets/icons/telegram.svg?react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 

@@ -1,4 +1,6 @@
-import closeIcon from '@assets/icons/close-menu.png';
+import type { FC, SVGProps } from 'react';
+
+import CloseIcon from '@assets/icons/close-menu.svg?react';
 import classNames from 'classnames';
 
 import styles from './burger-menu.module.css';
@@ -17,7 +19,7 @@ interface BurgerMenuProps {
 }
 
 interface SocialLinks {
-  icon: string;
+  icon: FC<SVGProps<SVGSVGElement>>;
   url: string;
   label: string;
 }
@@ -33,7 +35,7 @@ const BurgerMenu = ({
     <div className={styles.overlay}>
       <nav className={styles.menu}>
         <button type="button" className={styles.closeButton} onClick={onClose}>
-          <img src={closeIcon} alt="" />
+          <CloseIcon className={styles.closeIcon} />
         </button>
         <ul className={styles.list}>
           {items.map((item) => (
@@ -51,11 +53,14 @@ const BurgerMenu = ({
         </ul>
         {socialLinks && socialLinks.length > 0 && (
           <div className={styles.social}>
-            {socialLinks.map((link) => (
-              <a key={link.label} href={link.url} aria-label={link.label}>
-                <img src={link.icon} alt="" />
-              </a>
-            ))}
+            {socialLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a key={link.label} href={link.url} aria-label={link.label}>
+                  <Icon />
+                </a>
+              );
+            })}
           </div>
         )}
       </nav>

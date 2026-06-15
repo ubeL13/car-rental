@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
+import fuelImage from '@assets/images/fuel.png';
+import insuranceImage from '@assets/images/insurance.png';
+import parkingImage from '@assets/images/parking.png';
+import serviceImage from '@assets/images/service.png';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
-import fuelImage from '../../../assets/images/fuel.svg';
-import insuranceImage from '../../../assets/images/insurance.svg';
-import parkingImage from '../../../assets/images/parking.svg';
-import serviceImage from '../../../assets/images/service.svg';
 
 import Slider, { type SlideData } from './slider';
 

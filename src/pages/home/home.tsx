@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import facebookIcon from '@assets/icons/facebook.png';
-import instagramIcon from '@assets/icons/instagram.png';
-import locationIcon from '@assets/icons/location.png';
-import telegramIcon from '@assets/icons/telegram.png';
-import fuelImage from '@assets/images/fuel.svg';
-import insuranceImage from '@assets/images/insurance.svg';
-import parkingImage from '@assets/images/parking.svg';
-import serviceImage from '@assets/images/service.svg';
+import FacebookIcon from '@assets/icons/facebook.svg?react';
+import InstagramIcon from '@assets/icons/instagram.svg?react';
+import LocationIcon from '@assets/icons/location.svg?react';
+import TelegramIcon from '@assets/icons/telegram.svg?react';
+import fuelImage from '@assets/images/fuel.png';
+import insuranceImage from '@assets/images/insurance.png';
+import parkingImage from '@assets/images/parking.png';
+import serviceImage from '@assets/images/service.png';
 import {
   BurgerButton,
   BurgerMenu,
@@ -21,9 +21,9 @@ import Slider from '@shared/ui-kit/slider/slider';
 import styles from './home.module.css';
 
 const socialLinks = [
-  { url: '#', icon: telegramIcon, label: 'Telegram' },
-  { url: '#', icon: facebookIcon, label: 'Facebook' },
-  { url: '#', icon: instagramIcon, label: 'Instagram' },
+  { url: '#', icon: TelegramIcon, label: 'Telegram' },
+  { url: '#', icon: FacebookIcon, label: 'Facebook' },
+  { url: '#', icon: InstagramIcon, label: 'Instagram' },
 ];
 
 const slides: SlideData[] = [
@@ -93,7 +93,7 @@ const Home = () => {
         <header className={styles.header}>
           <span className={styles.logo}>Need for drive</span>
           <div className={styles.location}>
-            <img src={locationIcon} alt="" />
+            <LocationIcon className={styles.locationIcon} />
             <span className={styles.titleLocation}>Ульяновск</span>
           </div>
         </header>

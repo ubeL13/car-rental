@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import closeIcon from '@assets/icons/close-icon.png';
+import CloseIcon from '@assets/icons/close-icon.svg?react';
 import classNames from 'classnames';
 
 import styles from './autocomplete.module.css';
@@ -81,7 +81,7 @@ const Autocomplete = ({
             type="button"
             className={styles.clearButton}
             onClick={handleClear}>
-            <img src={closeIcon} alt="" />
+            <CloseIcon className={styles.closeIcon} />
           </button>
         )}
         {showDropdown && (

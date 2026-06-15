@@ -36,9 +36,10 @@ const Slider = ({ slides, activeIndex, onSlideChange }: SliderProps) => {
 
   return (
     <div className={styles.slider}>
-      <div
+      <img
         className={styles.image}
-        style={{ backgroundImage: `url(${activeSlide.image})` }}
+        src={activeSlide.image}
+        alt={activeSlide.title}
       />
       <div className={styles.content}>
         <h2 className={styles.title}>{activeSlide.title}</h2>
