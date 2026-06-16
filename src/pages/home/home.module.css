@@ -18,6 +18,12 @@ body {
   box-sizing: border-box;
 }
 
+.burger {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+}
+
 .main {
   background: #fff;
   display: flex;
@@ -117,6 +123,11 @@ body {
   .media {
     display: none;
   }
+
+  .burger {
+    width: 42px;
+    height: 32px;
+  }
 }
 
 @media (width <= 600px) {
@@ -134,6 +145,10 @@ body {
     position: absolute;
     top: 16px;
     left: 16px;
+  }
+
+  .burger {
+    color: var(--color-primary-black);
   }
 
   .button-wrapper {

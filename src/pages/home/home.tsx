@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 import LocationIcon from '@assets/icons/location.svg?react';
-import { BurgerButton, ChangeLanguage, Button, Link } from '@shared/ui-kit';
+import MenuIcon from '@assets/icons/menu-btn.svg?react';
+import ChangeLanguage from '@components/change-language';
+import { Button, Link } from '@shared/ui-kit';
 
 import styles from './home.module.css';
 import SliderSection from './slider-section';
@@ -13,7 +15,14 @@ const Home = () => {
   return (
     <div className={styles.page}>
       <aside className={styles.sidebar}>
-        <BurgerButton onClick={() => setIsMenuOpen(true)} />
+        <Button
+          icon={MenuIcon}
+          variant="ghost"
+          size="icon"
+          className={styles.burger}
+          aria-label="Открыть меню"
+          onClick={() => setIsMenuOpen(true)}
+        />
         <ChangeLanguage
           label={language === 'RU' ? 'ENG' : 'RU'}
           onClick={() => setLanguage(language === 'RU' ? 'ENG' : 'RU')}
@@ -21,7 +30,14 @@ const Home = () => {
       </aside>
 
       <header className={styles.mobileSidebar}>
-        <BurgerButton onClick={() => setIsMenuOpen(true)} />
+        <Button
+          icon={MenuIcon}
+          variant="ghost"
+          size="icon"
+          className={styles.burger}
+          aria-label="Открыть меню"
+          onClick={() => setIsMenuOpen(true)}
+        />
       </header>
 
       <main className={styles.main}>
