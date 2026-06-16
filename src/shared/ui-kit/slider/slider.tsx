@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import classNames from 'classnames';
 
 import Button from '../button';
@@ -10,6 +12,7 @@ export interface SliderProps {
   slides: SlideData[];
   activeIndex: number;
   onSlideChange: (index: number) => void;
+  timeSwitch?: number;
 }
 
 export interface SlideData {
@@ -21,7 +24,12 @@ export interface SlideData {
   buttonVariant: ButtonVariant;
 }
 
-const Slider = ({ slides, activeIndex, onSlideChange }: SliderProps) => {
+const Slider = ({
+  slides,
+  activeIndex,
+  onSlideChange,
+  timeSwitch,
+}: SliderProps) => {
   const handlePrev = () => {
     const newIndex = activeIndex === 0 ? slides.length - 1 : activeIndex - 1;
     onSlideChange(newIndex);
@@ -31,6 +39,14 @@ const Slider = ({ slides, activeIndex, onSlideChange }: SliderProps) => {
     const newIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
     onSlideChange(newIndex);
   };
+
+  useEffect(() => {
+    if (!timeSwitch) return;
+    const id = setTimeout(() => {
+      onSlideChange(activeIndex === slides.length - 1 ? 0 : activeIndex + 1);
+    }, timeSwitch);
+    return () => clearTimeout(id);
+  }, [activeIndex, timeSwitch, slides.length, onSlideChange]);
 
   const activeSlide = slides[activeIndex];
 
