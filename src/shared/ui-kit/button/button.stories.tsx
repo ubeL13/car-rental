@@ -1,3 +1,4 @@
+import MenuIcon from '@assets/icons/menu-btn.svg?react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
@@ -71,4 +72,14 @@ export const Disabled: Story = {
     state: 'disabled',
     label: 'Ок',
   },
+};
+
+export const IconGhost: Story = {
+  args: {
+    icon: MenuIcon,
+    variant: 'ghost',
+    size: 'icon',
+    'aria-label': 'Меню',
+  },
+  parameters: { backgrounds: { default: 'dark' } },
 };
