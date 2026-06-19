@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Fragment } from 'react/jsx-runtime';
 
 import styles from './tabs.module.css';
 
@@ -18,22 +19,25 @@ interface TabsProps {
 const Tabs = ({ items, activeId, onChange, className }: TabsProps) => {
   return (
     <div className={classNames(styles.tabs, className)} role="tablist">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const isActive = item.id === activeId;
         return (
-          <button
-            key={item.id}
-            type="button"
-            role="tab"
-            aria-selected={isActive}
-            className={classNames(styles.tab, {
-              [styles.active]: isActive,
-              [styles.disabled]: item.disabled,
-            })}
-            disabled={item.disabled}
-            onClick={() => onChange(item.id)}>
-            {item.label}
-          </button>
+          <Fragment key={item.id}>
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              className={classNames(styles.tab, {
+                [styles.active]: isActive,
+                [styles.disabled]: item.disabled,
+              })}
+              disabled={item.disabled}
+              onClick={() => onChange(item.id)}>
+              {item.label}
+            </button>
+            {index < items.length - 1 && <span className={styles.triangle} />}
+          </Fragment>
         );
       })}
     </div>
