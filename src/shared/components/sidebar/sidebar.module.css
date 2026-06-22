@@ -1,0 +1,43 @@
+.sidebar {
+  background: var(--color-primary-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 16px;
+  box-sizing: border-box;
+}
+
+.burger {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+}
+
+.mobile-sidebar {
+  display: none;
+}
+
+@media (width <= 1024px) {
+  .burger {
+    width: 42px;
+    height: 32px;
+  }
+}
+
+@media (width <= 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-sidebar {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+
+  .burger {
+    color: var(--color-primary-black);
+  }
+}

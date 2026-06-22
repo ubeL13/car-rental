@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import FacebookIcon from '@assets/icons/facebook.svg?react';
 import InstagramIcon from '@assets/icons/instagram.svg?react';
@@ -66,13 +66,33 @@ const SliderSection = ({
   onCloseMenu,
   timeSwitch,
 }: SliderSectionProps) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const initialIndex = slides.findIndex(
+    (s) => s.id === location.state?.slideId
+  );
+  const [activeIndex, setActiveIndex] = useState(
+    initialIndex >= 0 ? initialIndex : 0
+  );
+  const findIndex = (slideId?: string) => {
+    const idx = slides.findIndex((s) => s.id === slideId);
+    return idx >= 0 ? idx : 0;
+  };
+
+  const [lastKey, setLastKey] = useState(location.key);
+
+  if (location.key != lastKey) {
+    setLastKey(location.key);
+    const slideId = location.state?.slideId;
+    if (slideId) setActiveIndex(findIndex(slideId));
+  }
 
   const menuItems = slides.map((slide, index) => ({
     label: slide.title,
-    active: activeIndex === index,
+    active: index === activeIndex,
     onClick: () => {
-      setActiveIndex(index);
+      navigate('/', { state: { slideId: slide.id } });
       onCloseMenu();
     },
   }));
