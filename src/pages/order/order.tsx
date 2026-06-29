@@ -4,6 +4,8 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import Header from '@shared/components/header';
 import Sidebar from '@shared/components/sidebar';
+import { buildMenuItems, socialLinks } from '@shared/config/menu';
+import { BurgerMenu } from '@shared/ui-kit/index.ts';
 import Tabs from '@shared/ui-kit/tabs/tabs';
 import type { TabItem } from '@shared/ui-kit/tabs/tabs';
 
@@ -20,12 +22,12 @@ const items: TabItem[] = [
 const Order = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
 
   const activeId = items.find((i) => pathname.endsWith(i.id))?.id ?? 'location';
-
+  const menuItems = buildMenuItems(navigate, () => setIsMenuOpen(false));
   return (
     <div className={styles.page}>
       <Sidebar
@@ -47,6 +49,12 @@ const Order = () => {
           <OrderSummary />
         </div>
       </div>
+      <BurgerMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        items={menuItems}
+        socialLinks={socialLinks}
+      />
     </div>
   );
 };
