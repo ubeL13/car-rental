@@ -17,10 +17,12 @@ interface TabsProps {
 }
 
 const Tabs = ({ items, activeId, onChange, className }: TabsProps) => {
+  const activeIndex = items.findIndex((item) => item.id == activeId);
   return (
     <div className={classNames(styles.tabs, className)} role="tablist">
       {items.map((item, index) => {
         const isActive = item.id === activeId;
+        const isPassed = index < activeIndex;
         return (
           <Fragment key={item.id}>
             <button
@@ -30,6 +32,7 @@ const Tabs = ({ items, activeId, onChange, className }: TabsProps) => {
               aria-selected={isActive}
               className={classNames(styles.tab, {
                 [styles.active]: isActive,
+                [styles.passed]: isPassed,
                 [styles.disabled]: item.disabled,
               })}
               disabled={item.disabled}

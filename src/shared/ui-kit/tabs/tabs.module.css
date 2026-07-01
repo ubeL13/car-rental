@@ -7,6 +7,9 @@
   align-items: center;
   border-top: 1px solid var(--color-grey-light);
   border-bottom: 1px solid var(--color-grey-light);
+  margin-left: -60px;
+  margin-right: -60px;
+  padding-left: 60px;
 }
 
 .tab {
@@ -14,8 +17,8 @@
   border: none;
   background: transparent;
   padding: 0 0 4px;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--color-grey-dark);
 }
 
@@ -39,8 +42,11 @@
 }
 
 .active {
-  font-weight: 500;
   color: var(--color-primary);
+}
+
+.passed {
+  color: var(--color-black);
 }
 
 .disabled {

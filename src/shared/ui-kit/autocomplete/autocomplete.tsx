@@ -5,11 +5,16 @@ import classNames from 'classnames';
 
 import styles from './autocomplete.module.css';
 
+interface AutocompleteOption {
+  id: string;
+  label: string;
+}
+
 interface AutocompleteProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
-  options: string[];
+  options: AutocompleteOption[];
   placeholder?: string;
   disabled?: boolean;
 }
@@ -23,10 +28,16 @@ const Autocomplete = ({
   disabled,
 }: AutocompleteProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  const selectedLabel =
+    options.find((option) => option.id === value)?.label ?? '';
+
+  const inputValue = isOpen ? query : selectedLabel;
+
   const filteredOptions = options.filter((option) =>
-    option.toLowerCase().startsWith(value.toLowerCase())
+    option.label.toLowerCase().startsWith(query.toLowerCase())
   );
 
   useEffect(() => {
@@ -36,27 +47,35 @@ const Autocomplete = ({
         !wrapperRef.current.contains(e.target as Node)
       ) {
         setIsOpen(false);
+        setQuery('');
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const showDropdown = isOpen && value.length > 0 && filteredOptions.length > 0;
+  const showDropdown = isOpen && query.length > 0 && filteredOptions.length > 0;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    setQuery(e.target.value);
     setIsOpen(true);
   };
 
-  const handleSelect = (option: string) => {
-    onChange(option);
+  const handleSelect = (option: AutocompleteOption) => {
+    onChange(option.id);
+    setQuery('');
     setIsOpen(false);
   };
 
   const handleClear = () => {
     onChange('');
+    setQuery('');
     setIsOpen(false);
+  };
+
+  const handleFocus = () => {
+    setQuery('');
+    setIsOpen(true);
   };
 
   return (
@@ -70,9 +89,9 @@ const Autocomplete = ({
         <input
           type="text"
           className={styles.input}
-          value={value}
+          value={inputValue}
           onChange={handleInputChange}
-          onFocus={() => setIsOpen(true)}
+          onFocus={handleFocus}
           placeholder={placeholder}
           disabled={disabled}
         />
@@ -88,10 +107,10 @@ const Autocomplete = ({
           <ul className={styles.dropdown}>
             {filteredOptions.map((option) => (
               <li
-                key={option}
+                key={option.id}
                 className={styles.option}
                 onClick={() => handleSelect(option)}>
-                {option}
+                {option.label}
               </li>
             ))}
           </ul>
@@ -102,3 +121,4 @@ const Autocomplete = ({
 };
 
 export default Autocomplete;
+export type { AutocompleteOption };
