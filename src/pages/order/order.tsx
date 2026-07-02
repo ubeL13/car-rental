@@ -30,6 +30,7 @@ const Order = () => {
     cityId: '',
     pointId: '',
     modelId: '',
+    category: 'all',
   });
 
   const activeId = items.find((i) => pathname.endsWith(i.id))?.id ?? 'location';
@@ -52,7 +53,7 @@ const Order = () => {
           <main className={styles.main}>
             <Outlet context={{ order, setOrder }} />
           </main>
-          <OrderSummary />
+          <OrderSummary order={order} />
         </div>
       </div>
       <BurgerMenu

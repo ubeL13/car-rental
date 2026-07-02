@@ -1,73 +1,17 @@
-import { useState } from 'react';
-
 import { useOrderContext } from '@pages/order/order-context';
+import { cars, type CarCategory } from '@shared/config/cars';
 
 import styles from './model.module.css';
 
-type Category = 'all' | 'economy' | 'premium';
-
-interface Car {
-  id: string;
-  name: string;
-  priceMin: number;
-  priceMax: number;
-  category: 'economy' | 'premium';
-}
-
-const mockCars: Car[] = [
-  {
-    id: '1',
-    name: 'ELANTRA',
-    priceMin: 12000,
-    priceMax: 25000,
-    category: 'premium',
-  },
-  {
-    id: '2',
-    name: 'i30 N',
-    priceMin: 10000,
-    priceMax: 32000,
-    category: 'premium',
-  },
-  {
-    id: '3',
-    name: 'CRETA',
-    priceMin: 8000,
-    priceMax: 15000,
-    category: 'economy',
-  },
-  {
-    id: '4',
-    name: 'SONATA',
-    priceMin: 15000,
-    priceMax: 35000,
-    category: 'premium',
-  },
-  {
-    id: '5',
-    name: 'KIA Rio',
-    priceMin: 7000,
-    priceMax: 12000,
-    category: 'economy',
-  },
-  {
-    id: '6',
-    name: 'Hyundai Solaris',
-    priceMin: 6000,
-    priceMax: 11000,
-    category: 'economy',
-  },
-];
-
 const Model = () => {
   const { order, setOrder } = useOrderContext();
-  const [filter, setFilter] = useState<Category>('all');
-
   const filteredCars =
-    filter === 'all'
-      ? mockCars
-      : mockCars.filter((car) => car.category === filter);
-
+    order.category === 'all'
+      ? cars
+      : cars.filter((car) => car.category === order.category);
+  const setCategory = (category: CarCategory | 'all') => {
+    setOrder((prev) => ({ ...prev, modelId: '', category }));
+  };
   const handleSelectCar = (carId: string) => {
     setOrder((prev) => ({ ...prev, modelId: carId }));
   };
@@ -79,8 +23,8 @@ const Model = () => {
           <input
             type="radio"
             name="carFilter"
-            checked={filter === 'all'}
-            onChange={() => setFilter('all')}
+            checked={order.category === 'all'}
+            onChange={() => setCategory('all')}
           />
           <span>Все модели</span>
         </label>
@@ -88,8 +32,8 @@ const Model = () => {
           <input
             type="radio"
             name="carFilter"
-            checked={filter === 'economy'}
-            onChange={() => setFilter('economy')}
+            checked={order.category === 'economy'}
+            onChange={() => setCategory('economy')}
           />
           <span>Эконом</span>
         </label>
@@ -97,8 +41,8 @@ const Model = () => {
           <input
             type="radio"
             name="carFilter"
-            checked={filter === 'premium'}
-            onChange={() => setFilter('premium')}
+            checked={order.category === 'premium'}
+            onChange={() => setCategory('premium')}
           />
           <span>Премиум</span>
         </label>
