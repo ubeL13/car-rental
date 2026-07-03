@@ -17,7 +17,7 @@ interface TabsProps {
 }
 
 const Tabs = ({ items, activeId, onChange, className }: TabsProps) => {
-  const activeIndex = items.findIndex((item) => item.id == activeId);
+  const activeIndex = items.findIndex((item) => item.id === activeId);
   return (
     <div className={classNames(styles.tabs, className)} role="tablist">
       {items.map((item, index) => {

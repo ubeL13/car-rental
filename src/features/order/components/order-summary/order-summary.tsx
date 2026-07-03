@@ -4,7 +4,8 @@ import { cars } from '@shared/config/cars';
 import { cities } from '@shared/config/cities';
 import { Button } from '@shared/ui-kit';
 
-import type { OrderState } from './order-context';
+import type { OrderState } from '../../order.types';
+
 import styles from './order-summary.module.css';
 
 interface OrderSummaryProps {

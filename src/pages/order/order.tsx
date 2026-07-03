@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
+import { OrderSummary } from '@features/order';
+import type { OrderState } from '@features/order';
 import Header from '@shared/components/header';
 import Sidebar from '@shared/components/sidebar';
+import { cities } from '@shared/config/cities.ts';
 import { buildMenuItems, socialLinks } from '@shared/config/menu';
-import { BurgerMenu } from '@shared/ui-kit/index.ts';
-import Tabs from '@shared/ui-kit/tabs/tabs';
-import type { TabItem } from '@shared/ui-kit/tabs/tabs';
+import { BurgerMenu, Tabs } from '@shared/ui-kit';
+import type { TabItem } from '@shared/ui-kit';
 
-import type { OrderState } from './order-context.ts';
-import OrderSummary from './order-summary.tsx';
 import styles from './order.module.css';
 
 const items: TabItem[] = [
@@ -27,12 +27,12 @@ const Order = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
   const [order, setOrder] = useState<OrderState>({
-    cityId: '',
+    cityId: 'ulyanovsk',
     pointId: '',
     modelId: '',
     category: 'all',
   });
-
+  const cityName = cities.find((c) => c.id === order.cityId)?.name;
   const activeId = items.find((i) => pathname.endsWith(i.id))?.id ?? 'location';
   const menuItems = buildMenuItems(navigate, () => setIsMenuOpen(false));
   return (
@@ -43,7 +43,7 @@ const Order = () => {
         onToggleLanguage={() => setLanguage(language === 'RU' ? 'ENG' : 'RU')}
       />
       <div className={styles.content}>
-        <Header />
+        <Header city={cityName} />
         <Tabs
           items={items}
           activeId={activeId}
