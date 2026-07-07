@@ -31,11 +31,6 @@
   flex-shrink: 0;
 }
 
-.leader {
-  flex: 1;
-  border-bottom: 2px dotted var(--color-grey-dark);
-}
-
 .value {
   margin: 0;
   text-align: right;

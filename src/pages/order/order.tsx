@@ -53,7 +53,7 @@ const Order = () => {
           <main className={styles.main}>
             <Outlet context={{ order, setOrder }} />
           </main>
-          <OrderSummary order={order} />
+          <OrderSummary />
         </div>
       </div>
       <BurgerMenu
