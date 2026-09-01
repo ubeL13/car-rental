@@ -1,10 +1,7 @@
 import { useState } from 'react';
 
-// import LocationIcon from '@assets/icons/location.svg?react';
-// import MenuIcon from '@assets/icons/menu-btn.svg?react';
-// import ChangeLanguage from '@components/change-language';
-import Header from '@shared/components/header/header';
-import Sidebar from '@shared/components/sidebar/sidebar';
+import Header from '@shared/layout/header';
+import Sidebar from '@shared/layout/sidebar';
 import { Button, Link } from '@shared/ui-kit';
 
 import styles from './home.module.css';

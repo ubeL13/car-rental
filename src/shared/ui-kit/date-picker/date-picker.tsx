@@ -17,6 +17,7 @@ interface DatePickerProps {
   placeholder?: string;
   disabled?: boolean;
   minDate?: Date;
+  error?: string;
 }
 
 interface FieldProps {
@@ -62,31 +63,36 @@ const DatePicker = ({
   placeholder,
   disabled,
   minDate,
+  error,
 }: DatePickerProps) => {
   return (
     <div
       className={classNames(styles.wrapper, {
         [styles.disabled]: disabled,
+        [styles.invalid]: Boolean(error),
       })}>
-      <span className={styles.label}>{label}</span>
-      <ReactDatePicker
-        selected={value}
-        onChange={onChange}
-        disabled={disabled}
-        minDate={minDate}
-        locale="ru"
-        showTimeSelect
-        timeFormat="HH:mm"
-        timeIntervals={15}
-        timeCaption="Время"
-        dateFormat="dd.MM.yyyy HH:mm"
-        customInput={
-          <CustomField
-            onClear={() => onChange(null)}
-            placeholder={placeholder}
-          />
-        }
-      />
+      <div className={styles.row}>
+        <span className={styles.label}>{label}</span>
+        <ReactDatePicker
+          selected={value}
+          onChange={onChange}
+          disabled={disabled}
+          minDate={minDate}
+          locale="ru"
+          showTimeSelect
+          timeFormat="HH:mm"
+          timeIntervals={15}
+          timeCaption="Время"
+          dateFormat="dd.MM.yyyy HH:mm"
+          customInput={
+            <CustomField
+              onClear={() => onChange(null)}
+              placeholder={placeholder}
+            />
+          }
+        />
+      </div>
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import MenuIcon from '@assets/icons/menu-btn.svg?react';
-import ChangeLanguage from '@components/change-language';
-import { Button } from '@shared/ui-kit';
+import { Button, ChangeLanguage } from '@shared/ui-kit';
 
 import styles from './sidebar.module.css';
 

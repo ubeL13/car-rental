@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import styles from './radio-button.module.css';
 
-interface RadioButton {
+interface RadioOption {
   value: string;
   label: string;
   disabled?: boolean;
@@ -11,10 +11,12 @@ interface RadioButton {
 interface RadioButtonProps {
   name: string;
   value: string;
-  options: RadioButton[];
+  options: RadioOption[];
   onChange?: (value: string) => void;
   disabled?: boolean;
   className?: string;
+  direction?: 'column' | 'row';
+  error?: string;
 }
 
 const RadioButton = ({
@@ -24,34 +26,43 @@ const RadioButton = ({
   onChange,
   disabled = false,
   className,
+  direction = 'column',
+  error,
 }: RadioButtonProps) => {
   return (
-    <div className={classNames(styles.group, className)} role="radiogroup">
-      {options.map((option) => {
-        const isDisabled = disabled || option.disabled;
-        return (
-          <label
-            key={option.value}
-            className={classNames(styles.radio, {
-              [styles.disabled]: isDisabled,
-            })}>
-            <input
-              type="radio"
-              name={name}
-              value={option.value}
-              checked={value === option.value}
-              disabled={isDisabled}
-              onChange={() => onChange?.(option.value)}
-              className={styles.input}
-            />
-            <span className={styles.circle} />
-            <span className={styles.label}>{option.label}</span>
-          </label>
-        );
-      })}
+    <div className={classNames(styles.wrapper, className)}>
+      <div
+        className={classNames(styles.group, {
+          [styles.row]: direction === 'row',
+        })}
+        role="radiogroup">
+        {options.map((option) => {
+          const isDisabled = disabled || option.disabled;
+          return (
+            <label
+              key={option.value}
+              className={classNames(styles.radio, {
+                [styles.disabled]: isDisabled,
+              })}>
+              <input
+                type="radio"
+                name={name}
+                value={option.value}
+                checked={value === option.value}
+                disabled={isDisabled}
+                onChange={() => onChange?.(option.value)}
+                className={styles.input}
+              />
+              <span className={styles.circle} />
+              <span className={styles.label}>{option.label}</span>
+            </label>
+          );
+        })}
+      </div>
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };
 
 export default RadioButton;
-export type { RadioButtonProps, RadioButton };
+export type { RadioButtonProps, RadioOption };

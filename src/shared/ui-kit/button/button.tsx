@@ -7,6 +7,7 @@ import styles from './button.module.css';
 type ButtonState = 'default' | 'loading' | 'disabled';
 type ButtonVariant = 'green' | 'blue' | 'red' | 'purple' | 'ghost';
 type ButtonSize = 'small' | 'medium' | 'large' | 'icon';
+type ButtonType = 'button' | 'submit' | 'reset';
 
 interface ButtonProps {
   label?: string;
@@ -17,6 +18,7 @@ interface ButtonProps {
   'aria-label'?: string;
   className?: string;
   onClick?: () => void;
+  type?: ButtonType;
 }
 
 const Button = ({
@@ -28,6 +30,7 @@ const Button = ({
   'aria-label': ariaLabel,
   className,
   onClick,
+  type = 'button',
 }: ButtonProps) => {
   const isDisabled = state === 'disabled' || state === 'loading';
   const isLoading = state === 'loading';
@@ -48,7 +51,8 @@ const Button = ({
         className
       )}
       disabled={isDisabled}
-      onClick={onClick}>
+      onClick={onClick}
+      type={type}>
       {isLoading ? (
         <div className={styles.loader} />
       ) : (

@@ -3,6 +3,7 @@
   align-items: baseline;
   gap: 8px;
   font-family: Roboto, sans-serif;
+  flex-direction: column;
 }
 
 .label {
@@ -84,6 +85,22 @@
   opacity: 0.5;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.error {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-error);
+}
+
+.invalid .input {
+  border-bottom-color: var(--color-error);
 }
 
 :global(.react-datepicker-triangle) {

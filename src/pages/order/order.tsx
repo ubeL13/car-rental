@@ -4,10 +4,10 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { OrderSummary } from '@features/order';
 import type { OrderState } from '@features/order';
-import Header from '@shared/components/header';
-import Sidebar from '@shared/components/sidebar';
 import { cities } from '@shared/config/cities.ts';
 import { buildMenuItems, socialLinks } from '@shared/config/menu';
+import Header from '@shared/layout/header';
+import Sidebar from '@shared/layout/sidebar';
 import { BurgerMenu, Tabs } from '@shared/ui-kit';
 import type { TabItem } from '@shared/ui-kit';
 
