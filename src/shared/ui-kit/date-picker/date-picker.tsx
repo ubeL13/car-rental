@@ -18,6 +18,7 @@ interface DatePickerProps {
   disabled?: boolean;
   minDate?: Date;
   error?: string;
+  onBlur?: () => void;
 }
 
 interface FieldProps {
@@ -64,6 +65,7 @@ const DatePicker = ({
   disabled,
   minDate,
   error,
+  onBlur,
 }: DatePickerProps) => {
   return (
     <div
@@ -76,6 +78,7 @@ const DatePicker = ({
         <ReactDatePicker
           selected={value}
           onChange={onChange}
+          onCalendarClose={onBlur}
           disabled={disabled}
           minDate={minDate}
           locale="ru"

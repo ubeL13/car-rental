@@ -1,22 +1,18 @@
-import { Button } from '@shared/ui-kit';
+import { useFormContext } from 'react-hook-form';
 
 import FormCheckbox from './controls/form-checkbox';
 import FormDatePicker from './controls/form-date-picker';
 import FormRadioGroup from './controls/form-radio-group';
 import styles from './form.module.css';
-import { COLOR_OPTIONS, TARIFF_OPTIONS, useOrderForm } from './use-form';
+import { COLOR_OPTIONS, TARIFF_OPTIONS } from './use-form';
 import type { OrderFormValues } from './use-form';
 
 const OrderForm = () => {
-  const { control, handleSubmit, watch } = useOrderForm();
+  const { control, watch } = useFormContext<OrderFormValues>();
   const dateFrom = watch('dateFrom');
 
-  const onSubmit = (values: OrderFormValues) => {
-    console.log(values);
-  };
-
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <div className={styles.form}>
       <fieldset className={styles.section}>
         <legend className={styles.legend}>Цвет</legend>
         <FormRadioGroup
@@ -83,9 +79,7 @@ const OrderForm = () => {
           label="Правый руль, 1600р"
         />
       </fieldset>
-
-      <Button label="Проверить форму" size="medium" type="submit" />
-    </form>
+    </div>
   );
 };
 

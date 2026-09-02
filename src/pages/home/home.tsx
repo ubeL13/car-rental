@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import Header from '@shared/layout/header';
 import Sidebar from '@shared/layout/sidebar';
 import { Button, Link } from '@shared/ui-kit';
@@ -10,6 +12,7 @@ import SliderSection from './slider-section';
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
+  const navigate = useNavigate();
 
   return (
     <div className={styles.page}>
@@ -43,7 +46,11 @@ const Home = () => {
             Поминутная аренда авто твоего города
           </p>
           <div className={styles.buttonWrapper}>
-            <Button label="Забронировать" size="medium" onClick={() => {}} />
+            <Button
+              label="Забронировать"
+              size="medium"
+              onClick={() => navigate('/order')}
+            />
           </div>
         </section>
 

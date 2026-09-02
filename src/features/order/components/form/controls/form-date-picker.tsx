@@ -35,6 +35,7 @@ const FormDatePicker = <T extends FieldValues>({
         minDate={minDate}
         value={field.value ?? null}
         onChange={field.onChange}
+        onBlur={field.onBlur}
         error={fieldState.error?.message}
       />
     )}

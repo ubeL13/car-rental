@@ -13,6 +13,7 @@ interface RadioButtonProps {
   value: string;
   options: RadioOption[];
   onChange?: (value: string) => void;
+  onBlur?: () => void;
   disabled?: boolean;
   className?: string;
   direction?: 'column' | 'row';
@@ -24,6 +25,7 @@ const RadioButton = ({
   value,
   options,
   onChange,
+  onBlur,
   disabled = false,
   className,
   direction = 'column',
@@ -51,6 +53,7 @@ const RadioButton = ({
                 checked={value === option.value}
                 disabled={isDisabled}
                 onChange={() => onChange?.(option.value)}
+                onBlur={onBlur}
                 className={styles.input}
               />
               <span className={styles.circle} />

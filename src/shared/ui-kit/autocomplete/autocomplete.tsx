@@ -37,7 +37,7 @@ const Autocomplete = ({
   const inputValue = isOpen ? query : selectedLabel;
 
   const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().startsWith(query.toLowerCase())
+    option.label.toLowerCase().includes(query.toLowerCase())
   );
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const Autocomplete = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const showDropdown = isOpen && query.length > 0 && filteredOptions.length > 0;
+  const showDropdown = isOpen && filteredOptions.length > 0;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);

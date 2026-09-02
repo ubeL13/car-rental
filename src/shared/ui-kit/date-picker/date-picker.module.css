@@ -12,6 +12,7 @@
   line-height: 16px;
   color: var(--color-primary-black);
   flex-shrink: 0;
+  min-width: var(--date-picker-label-width, 0);
 }
 
 .input-wrapper {

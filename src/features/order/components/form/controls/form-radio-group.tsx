@@ -33,6 +33,7 @@ const FormRadioGroup = <T extends FieldValues>({
         options={options}
         direction={direction}
         onChange={field.onChange}
+        onBlur={field.onBlur}
         error={fieldState.error?.message}
       />
     )}
