@@ -1,5 +1,5 @@
-function Location() {
-  return <h1>Location</h1>;
-}
+import { LocationSelect } from '@features/order';
+
+const Location = () => <LocationSelect />;
 
 export default Location;

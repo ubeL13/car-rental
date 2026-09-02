@@ -8,9 +8,9 @@
     "skipLibCheck": true,
     "paths": {
       "@pages/*": ["./src/pages/*"],
+      "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@components/*": ["./src/components/*"]
+      "@assets/*": ["./src/assets/*"]
     },
 
     /* Bundler mode */

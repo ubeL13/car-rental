@@ -1,5 +1,5 @@
-function Additionally() {
-  return <h1>Additionally</h1>;
-}
+import { OrderForm } from '@features/order';
+
+const Additionally = () => <OrderForm />;
 
 export default Additionally;

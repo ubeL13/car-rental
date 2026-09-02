@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
+import { cities } from '@shared/config/cities';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import Autocomplete from './autocomplete';
-import { cities } from './data';
 
 const meta = {
   title: 'UI-kit/Autocomplete',
@@ -18,6 +18,7 @@ const Template = (args: React.ComponentProps<typeof Autocomplete>) => {
   const [value, setValue] = useState(args.value);
   return <Autocomplete {...args} value={value} onChange={setValue} />;
 };
+const cityOptions = cities.map((c) => ({ id: c.id, label: c.name }));
 
 export const Filled: Story = {
   render: Template,
@@ -25,7 +26,7 @@ export const Filled: Story = {
     label: 'Город',
     placeholder: 'Начните вводить пункт ...',
     value: 'Ульяновск',
-    options: cities,
+    options: cityOptions,
     onChange: () => {},
   },
 };
@@ -36,7 +37,7 @@ export const Empty: Story = {
     label: 'Город',
     placeholder: 'Начните вводить пункт ...',
     value: '',
-    options: cities,
+    options: cityOptions,
     onChange: () => {},
   },
 };
@@ -47,7 +48,7 @@ export const Typing: Story = {
     label: 'Город',
     placeholder: 'Начните вводить пункт ...',
     value: 'У',
-    options: cities,
+    options: cityOptions,
     onChange: () => {},
   },
 };

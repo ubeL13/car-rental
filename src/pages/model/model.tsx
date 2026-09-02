@@ -1,5 +1,5 @@
-function Model() {
-  return <h1>Model</h1>;
-}
+import { ModelSelect } from '@features/order';
+
+const Model = () => <ModelSelect />;
 
 export default Model;

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import LocationIcon from '@assets/icons/location.svg?react';
-import MenuIcon from '@assets/icons/menu-btn.svg?react';
-import ChangeLanguage from '@components/change-language';
+import { useNavigate } from 'react-router-dom';
+
+import Header from '@shared/layout/header';
+import Sidebar from '@shared/layout/sidebar';
 import { Button, Link } from '@shared/ui-kit';
 
 import styles from './home.module.css';
@@ -11,24 +12,16 @@ import SliderSection from './slider-section';
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'RU' | 'ENG'>('RU');
+  const navigate = useNavigate();
 
   return (
     <div className={styles.page}>
-      <aside className={styles.sidebar}>
-        <Button
-          icon={MenuIcon}
-          variant="ghost"
-          size="icon"
-          className={styles.burger}
-          aria-label="Открыть меню"
-          onClick={() => setIsMenuOpen(true)}
-        />
-        <ChangeLanguage
-          label={language === 'RU' ? 'ENG' : 'RU'}
-          onClick={() => setLanguage(language === 'RU' ? 'ENG' : 'RU')}
-        />
-      </aside>
-
+      <Sidebar
+        onOpenMenu={() => setIsMenuOpen(true)}
+        language={language}
+        onToggleLanguage={() => setLanguage(language === 'RU' ? 'ENG' : 'RU')}
+      />
+      {/* 
       <header className={styles.mobileSidebar}>
         <Button
           icon={MenuIcon}
@@ -38,16 +31,10 @@ const Home = () => {
           aria-label="Открыть меню"
           onClick={() => setIsMenuOpen(true)}
         />
-      </header>
+      </header> */}
 
       <main className={styles.main}>
-        <header className={styles.header}>
-          <span className={styles.logo}>Need for drive</span>
-          <div className={styles.location}>
-            <LocationIcon className={styles.locationIcon} />
-            <span className={styles.titleLocation}>Ульяновск</span>
-          </div>
-        </header>
+        <Header />
 
         <section className={styles.hero}>
           <h1 className={styles.title}>
@@ -59,7 +46,11 @@ const Home = () => {
             Поминутная аренда авто твоего города
           </p>
           <div className={styles.buttonWrapper}>
-            <Button label="Забронировать" size="medium" onClick={() => {}} />
+            <Button
+              label="Забронировать"
+              size="medium"
+              onClick={() => navigate('/order')}
+            />
           </div>
         </section>
 

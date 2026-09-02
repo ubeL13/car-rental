@@ -3,6 +3,8 @@
   --color-primary-black: #121212;
   --color-grey-dark: #999;
   --color-grey-light: #eee;
+  --color-error: #db1d1d;
+  --font-family: roboto, sans-serif;
   --cursor-default: url('./assets/cursors/cursor.svg') 0 0, auto;
   --cursor-pointer: url('./assets/cursors/pointer.svg') 11 0, pointer;
   --header-height: 32px;
@@ -10,6 +12,10 @@
 }
 
 body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-primary-black);
+  background: #fff;
   cursor: var(--cursor-default);
 }
 

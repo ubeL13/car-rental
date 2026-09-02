@@ -1,4 +1,4 @@
-import { Button } from '@shared/ui-kit';
+import Button from '../button';
 
 import styles from './change-language.module.css';
 

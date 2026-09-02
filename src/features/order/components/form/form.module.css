@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+
+  --date-picker-label-width: 24px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-primary-black);
+  padding: 0;
+  margin-bottom: 14px;
+}
